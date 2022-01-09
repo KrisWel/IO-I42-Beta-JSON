@@ -12,6 +12,21 @@ import pl.put.poznan.transformer.utils.OnlySpecificValues;
 
 import java.util.ArrayList;
 
+/**
+ * <p>
+ *
+ * Klasa REST sluzaca do poslugiwania sie klasa do utworzenia uproszczonej
+ * struktury JSON przez podanie odpowiedniego klucza. Dodatkowo jest uzyta biblioteka
+ * sl4j, ktora informuje w konsoli o bledach i powodzeniach funkcjonalnosci.
+ *
+ * @author 144493 (Scrum Master)
+ * @author 145299 (Proxy Product Owner)
+ * @author 144629
+ * @author 145357
+ * @version 1.0.5
+ * @since 1.0
+ */
+
 @RestController
 @RequestMapping("/specific")
 public class OnlySpecificValuesController {

@@ -4,44 +4,43 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 
-/*
- * Jako programista mogę uzyskać zminifikowaną strukturę w formacie JSON na podstawie pełnego zapisu w formacie JSON, aby zmniejszyć rozmiar danych.
+/**
+ * Jako programista moge uzyskac zminifikowana strukture w formacie JSON na podstawie pełnego zapisu w formacie JSON, aby zmniejszyc rozmiar danych.
  * <p>
- * Program pobiera łańcuch znaków w formacie zgodnym z JSON z naszej klasy głównej
- *  i dzięki funkcji JSONValue.parse usuwa wszelkie
- * białe znaki z pliku. Dzięki temu jesteśmy w stanie otrzymać strukturę nawet o połowę
- * lżejszą niż oryginał.
+ * Program pobiera lancuch znakow w formacie zgodnym z JSON z naszej klasy glownej
+ *  i dzieki funkcji JSONValue.parse usuwa wszelkie
+ * biale znaki z pliku. Dzieki temu jestesmy w stanie otrzymac strukture nawet o polowe
+ * lzejsza niz oryginal.
  *
  * <p>
  * @author 144493 (Scrum Master)
  * @author 145299 (Proxy Product Owner)
  * @author 144629
  * @author 145357
- * @version 1.0.2
+ * @version 1.0.5
  * @since 1.0
  *
-
  */
 
-public class FullToCompressedJSON{
+public class FullToCompressedJSON extends JSONBaseDecorator {
 
-    /*
-     * @param base - Agregacja głównej klasy przechowującej strukturę JSON.
+    /**
+     * @param uncompressed - String ze struktura JSON
      */
-    private JSONBase base;
+    public FullToCompressedJSON(String uncompressed) {
+        super(uncompressed);
+    }
 
-    /*
-     * Minimalizacja rozmiaru struktury JSON przy użyciu funkcji parse.
+    /**
+     *
+     * @return - String z JSON
      */
-
-    public String compression(String uncompressed) {
+    public String compression() {
         try {
-            base = new JSONBase(uncompressed);
-            JSONObject jsonDoc = (JSONObject) JSONValue.parse(base.getJSON());
-            // System.out.println(jsonDoc);
+            JSONObject jsonDoc = (JSONObject) JSONValue.parse(super.getJSON());
             System.out.println("JSON compressed");
-            return jsonDoc.toJSONString();
 
+            return jsonDoc.toJSONString();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -5,6 +5,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.JSONTransformer;
 
+/**
+ * <p>
+ *
+ * Klasa REST sluzaca do poslugiwania sie klasa do utworzenia pelnej
+ * struktury JSON ze zminifikowanej. Dodatkowo jest uzyta biblioteka
+ * sl4j, ktora informuje w konsoli o bledach i powodzeniach funkcjonalnosci.
+ *
+ * @author 144493 (Scrum Master)
+ * @author 145299 (Proxy Product Owner)
+ * @author 144629
+ * @author 145357
+ * @version 1.0.5
+ * @since 1.0
+ */
 
 @RestController
 @RequestMapping("/unminify")
